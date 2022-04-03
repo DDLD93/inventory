@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:latest
 
 # Create app directory
 # Create app directory
