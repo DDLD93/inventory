@@ -1,4 +1,4 @@
-FROM node:16.14.0
+FROM node:slim
 
 # Create app directory
 # Create app directory
