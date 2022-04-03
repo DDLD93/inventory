@@ -13,4 +13,4 @@ RUN npm install
 COPY . /usr/src/app
 
 EXPOSE 1100
-CMD [ "npm","run" ,"dev" ]
+CMD [ "node", "server" ]
