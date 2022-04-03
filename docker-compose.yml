@@ -3,10 +3,8 @@ version: '3'
 services:
   user:
     build:
-      context: ./user
+      context: ./user/
       dockerfile: Dockerfile
-    image: users
-    container_name: users
     restart: unless-stopped
     ports:
       - "1100:1100"
