@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  user:
+    build:
+      context: ./user
+      dockerfile: Dockerfile
+    image: users
+    container_name: users
+    restart: unless-stopped
+    ports:
+      - "1100:1100"
+    networks:
+      - app-network
+    depends_on:
+      - database
+  database:
+    image: mongo:4.1.8-xenial
+    container_name: mongo
+    restart: unless-stopped
+    volumes:     
+      - dbdata:/data/db
+    networks:
+      - app-network  
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata: 
