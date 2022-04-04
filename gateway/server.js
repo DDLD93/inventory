@@ -17,12 +17,12 @@ app.use(cors({
     origins: '*:*'
   }));
 
-app.use(proxy('/api/category', {target: 'http://localhost:1100'}))
-app.use(proxy('/api/location', {target: 'http://localhost:2200'}))
-app.use(proxy('/api/product', {target: 'http://localhost:3300'}))
-app.use(proxy('/api/supplier', {target: 'http://localhost:4400'}))
-app.use(proxy('/api/supply', {target: 'http://localhost:5500'}))
-app.use(proxy('/api/user', {target: 'http://localhost:6600'}))
+app.use(proxy('/api/category', {target: 'http://category:1100'}))
+app.use(proxy('/api/location', {target: 'http://location:2200'}))
+app.use(proxy('/api/product', {target: 'http://product:3300'}))
+app.use(proxy('/api/supplier', {target: 'http://supplier:4400'}))
+app.use(proxy('/api/supply', {target: 'http://supply:5500'}))
+app.use(proxy('/api/user', {target: 'http://user:6600'}))
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(options, app);
