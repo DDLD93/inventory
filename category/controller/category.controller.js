@@ -23,7 +23,7 @@ class CategoryController{
 
   async getCategoryByName(name){
     try {
-      const category = await Category.find({name:name})
+      const category = await Category.findOne({name})
       return {ok:true,status:"success",payload:category,message:"",error:null};
     } catch (err) {
       return {ok:false,status:"failed",payload:null,message:"unable to fetch category",error:err.message};
