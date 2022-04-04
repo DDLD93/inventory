@@ -25,7 +25,7 @@ module.exports = (express)=>{
     }
   });
 
-  api.get("/name/:name", async(req,res)=>{ 
+  api.get("/category/:name", async(req,res)=>{ 
     let {name} = req.params;
     let status = await ProductCtrl.getProductCategoryByName(name);
     if(status.ok){
