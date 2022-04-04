@@ -54,15 +54,15 @@ services:
       - app-network
     depends_on:
       - database          
-  user:
-    build: ./user
-    restart: unless-stopped
-    ports:
-      - "6600:6600"
-    networks:
-      - app-network
-    depends_on:
-      - database
+  # user:
+  #   build: ./user
+  #   restart: unless-stopped
+  #   ports:
+  #     - "6600:6600"
+  #   networks:
+  #     - app-network
+  #   depends_on:
+  #     - database
   database:
     image: mongo:4.1.8-xenial
     container_name: mongo
