@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
   name: { type: String, required:true },
-  category: { type: String, required:true },
+  category: { type: String, index:true, required:true },
   quantity: { type: Number, required:true },
   unitPrice: { type: Number, required:true },
   barcode: { type: Number, required:true },

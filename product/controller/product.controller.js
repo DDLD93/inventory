@@ -21,6 +21,15 @@ class ProductController{
     }
   }
 
+  async getProductCategoryByName(name){
+    try {
+      const product = await Product.find({category:name})
+      return {ok:true,status:"success",payload:product,message:"",error:null};
+    } catch (err) {
+      return {ok:false,status:"failed",payload:null,message:"unable to fetch product category",error:err.message};
+    }
+  }
+
   async addProduct(data){
     try {
       const newProduct = new Product(data);

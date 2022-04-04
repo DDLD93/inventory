@@ -24,16 +24,6 @@ module.exports = (express)=>{
       res.status(500).json(status);
     }
   });
-  api.get("/name/:name", async(req,res)=>{ 
-    let {name} = req.params;
-    let status = await CategoryCtrl.getCategoryByName(name);
-    if(status.ok){
-      if(status.payload) return res.status(200).json(status);
-      res.status(200).json({});
-    }else{
-      res.status(500).json(status);
-    }
-  });
 
   api.post("/",async(req,res)=>{
     let data = req.body
