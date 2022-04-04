@@ -8,7 +8,7 @@ const SupplierSchema = new Schema({
   address: { type: String, required: true },
   balance: { type: Number, required: true },
   supplierType: {
-    type: Number,
+    type: String,
     required: true,
     enum: ["single", "hybrid"]
   },
