@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // const url = process.env.DATABASE_URL || "mongodb+srv://AuthService:16001105@cluster0.kbf3k.mongodb.net/Buildings?retryWrites=true&w=majority"
-const url = "mongodb://localhost:27017/category"
+const url = "mongodb://database:27017/category"
 module.exports = () => {
     let options = {
         useNewUrlParser: true,

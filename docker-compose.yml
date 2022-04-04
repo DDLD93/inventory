@@ -1,11 +1,64 @@
 version: '3'
 
 services:
+  category:
+    build: ./category
+    restart: unless-stopped
+    ports:
+      - "1100:1100"
+    networks:
+      - app-network
+    depends_on:
+      - database
+  gateway:
+    build: ./gateway
+    restart: unless-stopped
+    ports:
+      - "80:8080"
+      - "443:8443"
+    networks:
+      - app-network        
+  location:
+    build: ./location
+    restart: unless-stopped
+    ports:
+      - "2200:2200"
+    networks:
+      - app-network
+    depends_on:
+      - database
+  product:
+    build: ./product
+    restart: unless-stopped
+    ports:
+      - "3300:3300"
+    networks:
+      - app-network
+    depends_on:
+      - database
+  supplier:
+    build: ./supplier
+    restart: unless-stopped
+    ports:
+      - "4400:4400"
+    networks:
+      - app-network
+    depends_on:
+      - database  
+  supply:
+    build: ./supply
+    restart: unless-stopped
+    ports:
+      - "5500:5500"
+    networks:
+      - app-network
+    depends_on:
+      - database          
   user:
     build: ./user
     restart: unless-stopped
     ports:
-      - "1100:1100"
+      - "6600:6600"
     networks:
       - app-network
     depends_on:

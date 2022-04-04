@@ -1,4 +1,4 @@
-FROM node:16.14.0
+FROM node:slim
 
 # Create app directory
 # Create app directory
@@ -12,5 +12,5 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 1100
+EXPOSE 6600
 CMD [ "node", "server" ]
