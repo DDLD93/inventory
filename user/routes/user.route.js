@@ -32,6 +32,7 @@ module.exports = (express)=>{
     let data = req.body
     let status = await UserCtrl.getUserByEmail(data.email);
     if(status.ok){
+      if(!status.payload) return res.status(400).json(status);
     let pCheck= await bcrypt.compare(data.password,status.payload.password)
       if(!pCheck) return res.status(401).json({status:"failed",message:"wrong password"});
       res.status(200).json(status);
