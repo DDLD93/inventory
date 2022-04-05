@@ -10,6 +10,7 @@ module.exports = (express)=>{
   api.get("/",async(req,res) =>{
     let status = await UserCtrl.getUsers();
     if(status.ok){
+      delete status.payload.password
       if(status.payload) return res.status(200).json(status);
       res.status(200).json([]);
     }else{
@@ -33,6 +34,7 @@ module.exports = (express)=>{
     let status = await UserCtrl.getUserByEmail(data.email);
     if(status.ok){
       if(!status.payload) return res.status(400).json(status);
+      delete status.payload.password
     let pCheck= await bcrypt.compare(data.password,status.payload.password)
       if(!pCheck) return res.status(401).json({status:"failed",message:"wrong password"});
       res.status(200).json(status);
