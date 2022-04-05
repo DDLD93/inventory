@@ -20,6 +20,16 @@ class UserController{
       return {ok:false,status:"failed",payload:null,message:"unable to fetch user",error:err.message};
     }
   }
+  // Alien code
+  async getUserByEmail(email){
+    try {
+      const user = await User.findOne({email});
+      if(user) return {ok:true,status:"success",payload:user,message:"user found",error:null};
+      return {ok:false,status:"failed",payload:{},message:"user not found",error:null};
+    } catch (err) {
+      return {ok:false,status:"failed",payload:null,message:"unable to fetch user",error:err.message};
+    }
+  }
 
   async addUser(data){
     try {

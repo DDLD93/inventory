@@ -28,6 +28,18 @@ module.exports = (express)=>{
     }
   });
 
+  api.post("/login", async(req,res)=>{ 
+    let data = req.body
+    let status = await UserCtrl.getUserByEmail(data.email);
+    if(status.ok){
+    let pCheck= await bcrypt.compare(data.password,status.payload.password)
+      if(!pCheck) return res.status(401).json({status:"failed",message:"wrong password"});
+      res.status(200).json(status);
+    }else{
+      res.status(500).json(status);
+    }
+  });
+
   api.post("/",async(req,res)=>{
     let data = req.body
     data.password = bcrypt.hashSync(data.password, salt);
