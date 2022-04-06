@@ -14,7 +14,7 @@ const SupplySchema = new Schema({
   purchaseUnitPrice:{ type:Number, required:true },
   saleUnitPrice:{ type:Number, required:true },
   status:{ type:String, required:true,
-  enum:["paid","unpaid","pending"],
+  enum:["paid","unpaid","pending","returned"],
   default:"unpaid" },
   createdAt: { type: Date, default: Date.now() },
 });

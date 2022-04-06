@@ -48,6 +48,19 @@ class SupplyController{
       return {ok:false,status:"failed",payload:null,message:"unable to delete supply",error:err.message};
     }
   }
+////////////////////----------////////////////////////
+// Added code umar jere
+// returning a supply
+
+async ReturnSupply(id){
+  try {
+    const updatedSupply = await Supply.findByIdAndUpdate(id, {status:"returned"}, {multi:false, new:true});
+    return {ok:true,status:"success",payload:updatedSupply,message:"supply  updated",error:null};
+  } catch (err) {
+    return {ok:false,status:"failed",payload:null,message:"unable to update supply",error:err.message};
+  }
+}
+
 }
 
 module.exports = new SupplyController();

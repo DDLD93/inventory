@@ -21,7 +21,7 @@ module.exports = (express)=>{
       if(status.payload) return res.status(200).json(status);
       res.status(200).json({});
     }else{
-      res.status(500).json(status.error);
+      res.status(500).json(status);
     }
   });
 
@@ -51,6 +51,19 @@ module.exports = (express)=>{
   api.delete("/:id", async(req,res)=>{
     let {id} = req.params;
     let status = await SupplyCtrl.deleteSupply(id)
+    if(status.ok){
+      res.status(200).json(status);
+    }else{
+      res.status(500).json(status);
+    }
+  });
+
+  ////////////---------////////////////
+  // added code by umar jere
+  // supply return endpoint
+  api.patch("/return/:id", async(req,res)=>{
+    let {id} = req.params;
+    let status = await SupplyCtrl.ReturnSupply(id)
     if(status.ok){
       res.status(200).json(status);
     }else{
