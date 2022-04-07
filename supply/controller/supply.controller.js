@@ -63,7 +63,7 @@ async ReturnSupply(id){
 
 async getSupplyByEmail(email){
   try {
-    const supply = await Supply.findOne({email});
+    const supply = await Supply.find({email});
     return {ok:true,status:"success",payload:supply,message:"",error:null};
   } catch (err) {
     return {ok:false,status:"failed",payload:null,message:"unable to get supply",error:err.message};
