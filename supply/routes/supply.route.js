@@ -61,7 +61,7 @@ module.exports = (express)=>{
   ////////////---------////////////////
   // added code by umar jere
   // supply return endpoint
-  api.patch("/return/:id", async(req,res)=>{
+  api.get("/return/:id", async(req,res)=>{
     let {id} = req.params;
     let status = await SupplyCtrl.ReturnSupply(id)
     if(status.ok){
