@@ -61,6 +61,15 @@ async ReturnSupply(id){
   }
 }
 
+async getSupplyByEmail(email){
+  try {
+    const supply = await Supply.findOne({email});
+    return {ok:true,status:"success",payload:supply,message:"",error:null};
+  } catch (err) {
+    return {ok:false,status:"failed",payload:null,message:"unable to get supply",error:err.message};
+  }
+}
+
 }
 
 module.exports = new SupplyController();

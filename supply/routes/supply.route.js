@@ -71,5 +71,16 @@ module.exports = (express)=>{
     }
   });
 
+  api.get("/email/:email", async(req,res)=>{
+    let {email} = req.params;
+    let status = await SupplyCtrl.getSupplyByEmail(email)
+    if(status.ok){
+      res.status(200).json(status);
+    }else{
+      res.status(500).json(status);
+    }
+  });
+
+
   return api;
 }
