@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const SupplySchema = new Schema({
   name:{ type:String, required:true },
   date:{type: String,required:true},
+  location:{type:String,required:true},
   contactPhone:{ type:String, required:true },
   email:{ type:String, index:true, required:true },
   description:{ type:String, required:true },

@@ -7,6 +7,7 @@ const ProductSchema = new Schema({
   quantity: { type: Number, required:true },
   unitPrice: { type: Number, required:true },
   barcode: { type: Number, required:true },
+  expiryDate:{type:Date, required:true},
   lowThreshold: { type: Number, required:true },
   reorderLevel: { type: Number, required:true },
   status: { type: String, },

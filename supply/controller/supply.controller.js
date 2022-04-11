@@ -76,7 +76,6 @@ class SupplyController {
       return { ok: false, status: "failed", payload: null, message: "unable to get supply", error: err.message };
     }
   }
-
 }
 
 module.exports = new SupplyController();
