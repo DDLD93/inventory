@@ -63,6 +63,28 @@ services:
       - app-network
     depends_on:
       - database
+  buildingFEIMS:
+    build: ./buildingFEIMS
+    restart: unless-stopped
+    ports:
+      - "8800:8800"
+    networks:
+      - app-network
+    volumes:     
+      - buildingdata:/usr/src/app/uploads   
+    depends_on:
+      - database
+  siteFEIMS:
+    build: ./siteFEIMS
+    restart: unless-stopped
+    ports:
+      - "7700:7700"
+    networks:
+      - app-network
+    volumes:     
+      - sitedata:/usr/src/app/uploads  
+    depends_on:
+      - database
   database:
     image: mongo:4.1.8-xenial
     container_name: mongo
@@ -77,4 +99,6 @@ networks:
     driver: bridge
 
 volumes:
-  dbdata: 
+  dbdata:
+  buildingdata:
+  sitedata: 
