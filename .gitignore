@@ -5,3 +5,5 @@ product/node_modules
 location/node_modules
 category/node_modules
 gateway/node_modules
+site/node_modules
+building/node_modules
