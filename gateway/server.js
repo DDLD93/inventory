@@ -23,8 +23,8 @@ app.use(proxy('/api/product', {target: 'http://product:3300'}))
 app.use(proxy('/api/supplier', {target: 'http://supplier:4400'}))
 app.use(proxy('/api/supply', {target: 'http://supply:5500'}))
 app.use(proxy('/api/user', {target: 'http://user:6600'}))
-app.use(proxy('/api/site', {target: 'http://siteFEIMS:7700'}))
-app.use(proxy('/api/building', {target: 'http://buildingFEIMS:8800'}))
+app.use(proxy('/api/site', {target: 'http://site:7700'}))
+app.use(proxy('/api/building', {target: 'http://building:8800'}))
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(options, app);
