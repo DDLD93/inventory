@@ -81,6 +81,16 @@ module.exports = (express)=>{
     }
   });
 
+  api.post("/batch", async(req,res)=>{
+    let data = req.body
+    let status = await SupplyCtrl.addSupplyMany(data)
+    if(status.ok){
+      res.status(200).json(status);
+    }else{
+      res.status(500).json(status);
+    }
+  });
+
 
   return api;
 }
