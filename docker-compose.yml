@@ -74,17 +74,6 @@ services:
       - buildingdata:/usr/src/app/uploads   
     depends_on:
       - database
-  site:
-    build: ./site
-    restart: unless-stopped
-    ports:
-      - "7700:7700"
-    networks:
-      - app-network
-    volumes:     
-      - sitedata:/usr/src/app/uploads  
-    depends_on:
-      - database
   database:
     image: mongo:4.1.8-xenial
     container_name: mongo

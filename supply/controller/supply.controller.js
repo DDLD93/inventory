@@ -1,5 +1,20 @@
 const Supply = require("../model/supply.model");
 
+function supplyCodeLogic(body) {
+    let newBody = body
+    var supplyCode = null
+    var dateObj = new Date();
+    var month = (dateObj.getUTCMonth() + 1).toString() //months from 1-12
+    var year = dateObj.getUTCFullYear().toString()
+    let lastCode= await Supply.find().sort({code:1}).limit(1)
+    lastCode = lastCode.code
+    month = month.length < 2? "0"+month: month
+    supplyCode = `SUP/${year.slice(-2)}/${month}/${lastCode++}`
+    newBody.code = supplyCode
+    return newBody
+  
+}
+
 class SupplyController {
   constructor() { }
 
