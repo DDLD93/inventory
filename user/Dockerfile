@@ -12,5 +12,5 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 6600
+EXPOSE 6666
 CMD [ "node", "server" ]

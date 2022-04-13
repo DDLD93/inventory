@@ -692,7 +692,7 @@ const BuildingSchema = new Schema({
         type: Number,
         enum: damageArr,
       },
-      buglarProofcostOfRepair: {
+      costOfRepair: {
         type: Number,
       },
     },
