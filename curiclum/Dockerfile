@@ -1,4 +1,4 @@
-FROM linux:alpine
+FROM ubuntu
 WORKDIR /app
 COPY . .
 EXPOSE 5000
