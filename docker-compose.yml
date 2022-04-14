@@ -75,7 +75,7 @@ services:
     depends_on:
       - database
   cv:
-    build: ./curiclum
+    build: ./cv
     restart: unless-stopped
     ports:
       - "5000:5000"
