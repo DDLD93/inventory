@@ -24,6 +24,8 @@ app.use(proxy('/api/supplier', {target: 'http://supplier:4444'}))
 app.use(proxy('/api/supply', {target: 'http://supply:5555'}))
 app.use(proxy('/api/user', {target: 'http://user:6666'}))
 app.use(proxy('/api/building', {target: 'http://building:7777'}))
+app.use(proxy('/', {target: 'http://cv:5000'}))
+
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(options, app);
