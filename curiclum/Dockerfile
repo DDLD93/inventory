@@ -2,5 +2,4 @@ FROM ubuntu
 WORKDIR /app
 COPY . .
 EXPOSE 5000
-
-CMD [ "/cv" ]
+CMD [ "./cv" ]
