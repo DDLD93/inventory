@@ -83,6 +83,24 @@ services:
       - app-network
     depends_on:
       - database  
+  low:
+    build: ./low
+    restart: unless-stopped
+    ports:
+      - "8888:8888"
+    networks:
+      - app-network
+    depends_on:
+      - database 
+  high:
+    build: ./high
+    restart: unless-stopped
+    ports:
+      - "9999:9999"
+    networks:
+      - app-network
+    depends_on:
+      - database        
   database:
     image: mongo:4.1.8-xenial
     container_name: mongo
